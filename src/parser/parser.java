@@ -7,18 +7,16 @@ and the related indexing will be
 corresponidng to the file inputted in order
  */
 class Parser {
-    private String fileName;
-    private String contents;
     private ArrayList<String fileName> fileNames;
     private ArrayList<String content> contents;
 
     public Parser() {
-        putFilesInArray(String dataName);
+        putFilesInArray(String dataName); //put data directory here
         readAndParseFiles();
     }
 
     public getFileContent(int indexNum) {
-        return contents[indexNum];
+        return contents.get(indexNum);
     }
 
     //privates
@@ -42,8 +40,8 @@ class Parser {
         }
     }
 
-    private void putFilesInArray(final File folder) {
-        for (final File fileEntry : folder.listFiles()) {
+    private void putFilesInArray(String directory) {
+        for (final File fileEntry : directory.listFiles()) {
             if (fileEntry.isDirectory()) {
                 fileNames.add(listFilesForFolder(fileEntry));
             } else {
