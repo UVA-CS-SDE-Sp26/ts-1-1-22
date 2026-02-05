@@ -1,0 +1,21 @@
+Test Documentation
+
+
+
+User Interface:
+
+
+
+File Handler:
+
+
+
+Program Control:
+Test no arguments -> should give list of files
+Test 1 argument -> should run the file handler with default cipher
+Test 2 arguments -> should use second argument as cipher
+Test 3+ arguments -> should give an error
+
+
+Cipher:
+
