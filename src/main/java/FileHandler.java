@@ -31,6 +31,7 @@ class FileHandler {
         if(indexNum >= 0 && indexNum < fileNames.size()) {
             return fileNames.get(indexNum);
         }
+        return null;
     }
 
     public String getFileContent(int indexNum) {
