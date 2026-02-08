@@ -20,6 +20,14 @@ class FileHandler {
     private ArrayList<String> fileNames;
     private ArrayList<String> contents;
 
+    public int getContentsSize() {
+        return contents.size();
+    }
+
+    public int getFileNamesSize() {
+        return fileNames.size();
+    }
+
     public FileHandler() throws IOException {
         fileNames = new ArrayList<>();
         contents = new ArrayList<>();
