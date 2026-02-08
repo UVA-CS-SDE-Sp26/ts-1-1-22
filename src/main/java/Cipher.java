@@ -7,8 +7,14 @@ public class Cipher{
 private char[] originalChars;
 private char[] cipherChars;
 
-public Cipher() throws FileNotFoundException {
-    File cipherFile = new File("ciphers/key.txt");
+public Cipher(String file) throws FileNotFoundException {
+
+    File cipherFile;
+    if(file == null ||file.isEmpty()) {
+        cipherFile = new File("ciphers/key.txt");
+    }else{
+        cipherFile = new File(file);
+    }
     Scanner sc = new Scanner(cipherFile);
 
     String originalString = sc.nextLine();
@@ -42,15 +48,6 @@ public String decipher(String input){
 
     return decipheredString;
 }
-
-    public static void main(String[] args) {
-        try {
-            Cipher cipher = new Cipher();  // ← instance created
-            System.out.println(cipher.decipher("dog"));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
 
 }
