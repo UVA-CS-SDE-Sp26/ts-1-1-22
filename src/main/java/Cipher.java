@@ -7,6 +7,8 @@ public class Cipher{
 private char[] originalChars;
 private char[] cipherChars;
 
+public Cipher () throws FileNotFoundException{this(null);}
+
 public Cipher(String file) throws FileNotFoundException {
 
     File cipherFile;
