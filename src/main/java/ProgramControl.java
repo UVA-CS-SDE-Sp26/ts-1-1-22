@@ -16,12 +16,20 @@ public class ProgramControl {
     public ProgramControl() {
     }
 
-    public static void runProgram(int arg1, String arg2) throws FileNotFoundException {
+    public static void runProgram(int arg1, String arg2) {
         if (arg1 > fh.getFileNamesSize()) throw new RuntimeException("Index out of bounds!");
+        else if (arg1 < 0) throw new RuntimeException("Invalid index");
         String fileContent = fh.getFileContent(arg1); // TODO: validate
         if (arg2 == null) {
-            Cipher c = new Cipher(null);
-            c.decipher(fileContent);
+            try {
+                Cipher c = new Cipher(null);
+                c.decipher(fileContent);
+            } catch (FileNotFoundException e) {
+                System.out.println("Unexpected file");
+                System.exit(1);
+            }
+
+
         }
         else {
             // call cipher with arg2 key
