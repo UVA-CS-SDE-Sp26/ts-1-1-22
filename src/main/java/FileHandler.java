@@ -20,7 +20,7 @@ class FileHandler {
     private ArrayList<String> fileNames;
     private ArrayList<String> contents;
 
-    public FileHandler() throws IOException {
+    public FileHandler(String data) throws IOException {
         fileNames = new ArrayList<>();
         contents = new ArrayList<>();
         putFilesInArray(new File("Data"));
@@ -49,8 +49,8 @@ class FileHandler {
         return null;
     }
 
-    //privates
-    private void readAndParseFiles() throws IOException {
+    //package privates
+    void readAndParseFiles() throws IOException {
         for(int i = 0; i < fileNames.size(); i++) {
             BufferedReader br = new BufferedReader(new FileReader(fileNames.get(i))); // Fixed: get(i)
             try {
@@ -69,7 +69,7 @@ class FileHandler {
         }
     }
 
-    private void putFilesInArray(File directory) {
+    void putFilesInArray(File directory) {
         if (directory.exists() && directory.isDirectory()) {
             File[] files = directory.listFiles();
             if (files != null) {
