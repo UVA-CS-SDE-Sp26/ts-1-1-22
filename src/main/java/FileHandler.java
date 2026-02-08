@@ -27,6 +27,12 @@ class FileHandler {
         readAndParseFiles();
     }
 
+    public String getFileNames(int indexNum) {
+        if(indexNum >= 0 && indexNum < fileNames.size()) {
+            return fileNames.get(indexNum);
+        }
+    }
+
     public String getFileContent(int indexNum) {
         if(indexNum >= 0 && indexNum < contents.size()) {
             return contents.get(indexNum);
