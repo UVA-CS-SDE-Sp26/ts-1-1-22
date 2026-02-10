@@ -8,11 +8,11 @@ Create the command line interface used by the user to run the program.
 
 When the program runs with no arguments, it should list the numbered files available to display. E.g.:
 
-01 filea.txt
+01 fileA.txt
 
-02 fileb.txt
+02 fileB.txt
 
-03 filec.txt
+03 fileC.txt
 
 When the program runs with a number as an argument, the contents of the corresponding file is displayed on screen.
 
