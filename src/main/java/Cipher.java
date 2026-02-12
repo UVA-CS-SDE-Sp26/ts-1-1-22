@@ -12,7 +12,7 @@ public Cipher () throws FileNotFoundException{this(null);}
 public Cipher(String file) throws FileNotFoundException {
 
     File cipherFile;
-    if(file == null ||file.isEmpty()) {
+    if(file == null || file.isEmpty()) {
         cipherFile = new File("ciphers/key.txt");
     }else{
         cipherFile = new File(file);

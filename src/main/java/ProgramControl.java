@@ -16,14 +16,22 @@ public class ProgramControl {
     public ProgramControl() {
     }
 
-    public static void runProgram(int arg1, String arg2) {
-        if (arg1 > fh.getFileNamesSize()) throw new RuntimeException("Index out of bounds!");
-        else if (arg1 < 0) throw new RuntimeException("Invalid index");
-        String fileContent = fh.getFileContent(arg1); // TODO: validate
+    public static String runProgram(int arg1, String arg2) {
+        if (arg1 > fh.getFileNamesSize() || arg1 < 0) {
+            System.out.println("Invalid file number!");
+            System.exit(1);
+        }
+
+        String fileContent = fh.getFileContent(arg1);
+        if (fileContent == null) {
+            System.out.println("File is null!");
+            System.exit(1);
+        }
         if (arg2 == null) {
+            // Default key for the cipher
             try {
                 Cipher c = new Cipher(null);
-                c.decipher(fileContent);
+                return c.decipher(fileContent);
             } catch (FileNotFoundException e) {
                 System.out.println("Unexpected file");
                 System.exit(1);
@@ -32,8 +40,17 @@ public class ProgramControl {
 
         }
         else {
-            // call cipher with arg2 key
+            try {
+                // call cipher with arg2 key
+                Cipher c = new Cipher(arg2);
+                return c.decipher(fileContent);
+            } catch (FileNotFoundException e) {
+                System.out.println("Unexpected file");
+                System.exit(1);
+            }
         }
+        // Shouldn't be reached
+        return null;
     }
 
     public static void printFileList() {
