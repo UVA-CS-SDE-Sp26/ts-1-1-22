@@ -2,8 +2,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
+
+//ts-1-1-22/Data
 /*
 This module will contain the File Handler object which works when this object is
 called and taking a argument "data directory". By default it will take the parameter
@@ -17,13 +20,17 @@ it will add it to the contents. Contents will be sorted in order in which ever o
  it is in the Data folder.
  */
 class FileHandler {
-    private ArrayList<String> fileNames;
-    private ArrayList<String> contents;
+    private final ArrayList<String> fileNames;
+    private final ArrayList<String> contents;
 
-    public FileHandler(String data) throws IOException {
+    public FileHandler() throws IOException {
         fileNames = new ArrayList<>();
         contents = new ArrayList<>();
-        putFilesInArray(new File("Data"));
+
+        Path rootPath = new File(".").getCanonicalFile().toPath();
+        File dataDir = new File("Data");
+        putFilesInArray(dataDir, rootPath);
+
         readAndParseFiles();
     }
 
@@ -69,16 +76,19 @@ class FileHandler {
         }
     }
 
-    void putFilesInArray(File directory) {
+    void putFilesInArray(File directory, Path basePath) throws IOException {
         if (directory.exists() && directory.isDirectory()) {
             File[] files = directory.listFiles();
             if (files != null) {
                 for (final File fileEntry : files) {
                     if (fileEntry.isDirectory()) {
-                        putFilesInArray(fileEntry);
+                        putFilesInArray(fileEntry, basePath);
                     } else {
-                        fileNames.add(fileEntry.getAbsolutePath());
-                        System.out.println("Found file: " + fileEntry.getName());
+                        Path relativePath =
+                                basePath.relativize(fileEntry.getCanonicalFile().toPath());
+
+                        fileNames.add(relativePath.toString());
+                        System.out.println("Found file: " + relativePath);
                     }
                 }
             }

@@ -9,13 +9,13 @@ class FileHandlerTest {
     private FileHandler fileHandler;
     @BeforeEach
     void setUp() throws IOException {
-        fileHandler = new FileHandler("Data");
+        fileHandler = new FileHandler();
     }
 
     @Test
     void getFileNames() {
         String firstName = fileHandler.getFileNames(0);
-        assertEquals("/Users/isaaclee/dev/ts-1-1-22/Data/test.txt", firstName);
+        assertEquals("Data/test.txt", firstName);
     }
 
     @Test

@@ -7,7 +7,7 @@ public class ProgramControl {
 
     static {
         try {
-            fh = new FileHandler("SDE!");
+            fh = new FileHandler();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
