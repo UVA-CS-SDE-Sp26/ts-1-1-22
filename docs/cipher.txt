@@ -1,0 +1,38 @@
+Cipher Purpose:
+The Cipher component is responsible for reading a cipher key file, validating it, and
+providing functionality to decipher encrypted text.
+It ensures that the key file follows required formatting rules before allowing decipher operations.
+
+Cipher default key is key.txt and is stored in the ciphers folder
+
+Requirements for custom file:
+File must contain exactly two lines-
+Line 1: Original characters
+Line 2: Corresponding cipher characters
+
+*Characters can not be repeated
+
+Validation:
+The file must exist.
+The file must contain exactly two lines.
+Both lines must be the same length.
+No duplicate characters are allowed in the original line or cipher line.
+
+
+decipher method:
+Accepts a ciphered String and returns the corresponding deciphered version
+
+tests:
+Test valid cipher file
+Test file does not exist
+Test missing first line
+Test missing second line
+Test more than two lines
+Test different length lines
+Test duplicate characters in original line
+Test duplicate characters in cipher line
+Test decipher normal mapping
+Test decipher with unmapped characters
+Test decipher empty string
+
+
