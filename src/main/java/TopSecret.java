@@ -3,11 +3,15 @@ public class TopSecret {
 
         String output;
 
-        // If no arguments, print
+        // If no arguments, print files
         if (args.length == 0) {
             output = "No file selected.";
             System.out.println(output);
-            System.out.println(ProgramControl.printFileList());
+            try {
+                System.out.println(ProgramControl.printFileList());
+            } catch (Exception e) {
+                System.out.println("Error calling Program Control.");
+            }
             return;
         }
 
