@@ -36,9 +36,7 @@ If 1-2 arguments
 Else return error
 
 ## Tests:
-Test invalid inputs:
-    garbage arguments
-        one garbage
-        one garbage, one legit, for both arguments
-        two garbage
-    too many arguments
+Tests for when:
+    - the first argument is not a number
+    - no arguments given
+    - too many arguments

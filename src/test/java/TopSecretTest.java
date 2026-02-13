@@ -28,20 +28,20 @@ class TopSecretTest {
     }
 
     @Test
-    void whenNoArguments_thenPrintNoFileMessageAndListFiles() {
+    void NoArguments() {
         String output = runMain();
         assertTrue(output.startsWith("No file selected."), "Should start with the 'No file selected.' message");
         assertTrue(output.contains("\n"), "There should be a second line printed by ProgramControl.printFileList()");
     }
 
     @Test
-    void whenArgumentIsNotANumber_thenShowParseError() {
+    void FirstArgumentIsNotANumber() {
         String output = runMain("abc");
         assertEquals("Error parsing file number.", output);
     }
 
     @Test
-    void whenTooManyArguments_thenShowErrorMessage() {
+    void TooManyArguments() {
         String output = runMain("1", "key", "extra");
         assertEquals("Error: Too many arguments.", output);
     }
