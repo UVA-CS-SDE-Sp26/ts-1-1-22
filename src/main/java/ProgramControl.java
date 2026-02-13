@@ -13,11 +13,8 @@ public class ProgramControl {
         }
     }
 
-    public ProgramControl() {
-    }
-
     public static String runProgram(int arg1, String arg2) {
-        if (arg1 > fh.getFileNamesSize() || arg1 < 0) {
+        if (arg1 > fh.getFileNamesSize() || arg1 <= 0) {
             throw new RuntimeException("Invalid file number.");
         }
 

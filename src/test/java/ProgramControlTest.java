@@ -1,20 +1,31 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.lang.reflect.Field;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+
+
 public class ProgramControlTest {
+
     private ProgramControl pc;
     @Test
     void noArgs() {
-        assertEquals("", ProgramControl.runProgram(-1, null));
+        RuntimeException e = assertThrows(RuntimeException.class, () -> ProgramControl.runProgram(-1, null));
+        assertEquals("Invalid file number.", e.getMessage());
     }
     @Test
     void oneArg() {
-        assertEquals("", ProgramControl.runProgram(1, null));
+        // Will be false if an exception is thrown, and exceptions are thrown if there are problems
+        assertFalse(ProgramControl.runProgram(1, null).isEmpty());
     }
 
     @Test
     void twoArg() {
-        assertEquals("", ProgramControl.runProgram(1, ""));
+        // I'm using the absolute path to the default key, since it will always be there.
+        // Still tests whether the second argument works.
+        assertFalse(ProgramControl.runProgram(1, "ciphers/key.txt").isEmpty());
     }
+
 }
