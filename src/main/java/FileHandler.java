@@ -58,9 +58,8 @@ class FileHandler {
 
     //package privates
     void readAndParseFiles() throws IOException {
-        for(int i = 0; i < fileNames.size(); i++) {
-            BufferedReader br = new BufferedReader(new FileReader(fileNames.get(i))); // Fixed: get(i)
-            try {
+        for (String fileName : fileNames) {
+            try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
                 StringBuilder sb = new StringBuilder();
                 String line = br.readLine();
 
@@ -70,8 +69,6 @@ class FileHandler {
                     line = br.readLine();
                 }
                 this.contents.add(sb.toString());
-            } finally {
-                br.close();
             }
         }
     }

@@ -1,0 +1,56 @@
+Isaac Lee
+Chn9bm
+
+File Handler Purpose:
+
+    This module will contain the File Handler object
+    which works when this object is called and taking
+    a argument "data directory". By default it will take
+    the parameter and call its private function, putFileInArray,
+    which takes the directory name and create a file object in
+    order to store those names. Then proceeding the file type
+    array it will put each element inside the parser.contents
+    array list storing the string value. Immediately after it
+    will call readAndParseFiles which will for the size of the
+    ArrayList and it will call a local string builder and
+    continuously add lines of each .txt file and concatenate it
+    in the StringBuilder object. Once it reaches the end of a .txt
+    file it will add it to the contents. Contents will be sorted
+    in order in which ever order it is in the Data folder.
+
+Components:
+
+    File Handler Has two main components in order to store
+    and read data inside the Data Folder. putFilesInArray will
+    directly look into the Data folder and only grab the names
+    of the .txt files and store them in an array. The order of which
+    it is stored in the array will be dependent on the order which
+    it is in the Data folder. The next functions called is the
+    readAndParseFiles; this function will index through the fileNames
+    array list and for each file read its contents and put it in
+    another global array called fileContents and is ordered the same
+    way it was in fileNames;
+
+== FileHandler ==
+
+ + FileHandler
+ + getContentSize
+ + getFileNames
+    - args: int indexNum
+ + getFileContent
+    - args: int indexNum
+
+ - readAndParseFiles
+ - putFilesInArray
+    - args: File fileDirectory, Path basePath
+
+Validations:
+
+    Folder Data must exist and at least contain one .txt file or
+    it will return NULL values.
+
+Tests:
+
+    getFileNames - test valid file name according to the corresponding index
+    getFileContent - test valid file content according to the corresponding index
+    getContentSize - test valid number of contents. should be equal to the getFileNames()
