@@ -18,14 +18,12 @@ public class ProgramControl {
 
     public static String runProgram(int arg1, String arg2) {
         if (arg1 > fh.getFileNamesSize() || arg1 < 0) {
-            System.out.println("Invalid file number!");
-            System.exit(1);
+            throw new RuntimeException("Invalid file number.");
         }
 
-        String fileContent = fh.getFileContent(arg1);
+        String fileContent = fh.getFileContent(arg1-1);
         if (fileContent == null) {
-            System.out.println("File is null!");
-            System.exit(1);
+            throw new RuntimeException("File is null.");
         }
         if (arg2 == null) {
             // Default key for the cipher
@@ -33,11 +31,8 @@ public class ProgramControl {
                 Cipher c = new Cipher(null);
                 return c.decipher(fileContent);
             } catch (FileNotFoundException e) {
-                System.out.println("Unexpected file");
-                System.exit(1);
+                throw new RuntimeException("Unexpected file.");
             }
-
-
         }
         else {
             try {
@@ -45,12 +40,9 @@ public class ProgramControl {
                 Cipher c = new Cipher(arg2);
                 return c.decipher(fileContent);
             } catch (FileNotFoundException e) {
-                System.out.println("Unexpected file");
-                System.exit(1);
+                throw new RuntimeException("Unexpected file.");
             }
         }
-        // Shouldn't be reached
-        return null;
     }
 
     public static void printFileList() {
