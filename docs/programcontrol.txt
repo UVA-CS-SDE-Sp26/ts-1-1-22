@@ -7,7 +7,16 @@ User Interface:
 
 
 File Handler:
+setUp() - Initializes a File Handler Object
 
+getFileNames() - Verifies that the first discovered file in the Data directory
+is stored and returned correctly.
+
+getFileContent() - Verifies that the contents of the first file
+in the Data directory are read, parsed, and returned correctly.
+
+Test getContentsSize() - Verifies that the correct number
+of file contents are stored after reading all files.
 
 
 Program Control:
