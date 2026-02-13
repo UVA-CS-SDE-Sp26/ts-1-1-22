@@ -24,7 +24,11 @@ public class TopSecret {
         if (args.length == 1) {
             output = "Using default key.";
             System.out.println(output);
-            System.out.println(ProgramControl.runProgram(fileNumber, null));
+            try {
+                System.out.println(ProgramControl.runProgram(fileNumber, null));
+            } catch (Exception e) {
+                System.out.println("Error calling Program Control.");
+            }
             return;
         }
 
@@ -33,7 +37,11 @@ public class TopSecret {
             output = "Using provided key.";
             System.out.println(output);
             String cipherDir = args[1];
-            System.out.println(ProgramControl.runProgram(fileNumber, cipherDir));
+            try {
+                System.out.println(ProgramControl.runProgram(fileNumber, cipherDir));
+            } catch (Exception e) {
+                System.out.println("Error calling Program Control.");
+            }
             return;
         }
 
