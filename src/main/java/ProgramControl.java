@@ -18,11 +18,10 @@ public class ProgramControl {
 
     public static String runProgram(int arg1, String arg2) {
         if (arg1 > fh.getFileNamesSize() || arg1 < 0) {
-            System.out.println("Invalid file number.");
-            System.exit(1);
+            throw new RuntimeException("Invalid file number.");
         }
 
-        String fileContent = fh.getFileContent(arg1);
+        String fileContent = fh.getFileContent(arg1-1);
         if (fileContent == null) {
             throw new RuntimeException("File is null.");
         }
@@ -34,8 +33,6 @@ public class ProgramControl {
             } catch (FileNotFoundException e) {
                 throw new RuntimeException("Unexpected file.");
             }
-
-
         }
         else {
             try {
