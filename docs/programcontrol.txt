@@ -18,4 +18,14 @@ Test 3+ arguments -> should give an error
 
 
 Cipher:
-
+Test valid cipher file
+Test file does not exist
+Test missing first line
+Test missing second line
+Test more than two lines
+Test different length lines
+Test duplicate characters in original line
+Test duplicate characters in cipher line
+Test decipher normal mapping
+Test decipher with unmapped characters
+Test decipher empty string
