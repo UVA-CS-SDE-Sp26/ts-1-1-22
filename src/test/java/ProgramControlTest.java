@@ -26,4 +26,9 @@ public class ProgramControlTest {
         assertFalse(ProgramControl.runProgram(1, "ciphers/key.txt").isEmpty());
     }
 
+    @Test
+    void listFiles() {
+        assertTrue(ProgramControl.printFileList().contains("\n"));
+    }
+
 }

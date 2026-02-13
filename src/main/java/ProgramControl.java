@@ -42,10 +42,12 @@ public class ProgramControl {
         }
     }
 
-    public static void printFileList() {
+    public static String printFileList() {
+        String output = "";
         for (int i = 0; i < fh.getFileNamesSize(); i++) {
-            System.out.println((i + 1) + ": " + fh.getFileNames(i));
+            output += ((i+1) + ": " + fh.getFileNames(i) + "\n");
         }
+        return output;
     }
 }
 

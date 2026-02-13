@@ -7,7 +7,7 @@ public class TopSecret {
         if (args.length == 0) {
             output = "No file selected.";
             System.out.println(output);
-            ProgramControl.printFileList();
+            System.out.println(ProgramControl.printFileList());
             return;
         }
 
