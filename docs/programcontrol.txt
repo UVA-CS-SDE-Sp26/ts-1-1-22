@@ -3,8 +3,9 @@ Test Documentation
 
 
 User Interface:
-
-
+No args: should start with "No file selected" and have two lines
+First argument non-number: Should have an error
+3+ arguments: should give error
 
 File Handler:
 setUp() - Initializes a File Handler Object
@@ -38,3 +39,14 @@ Test duplicate characters in cipher line
 Test decipher normal mapping
 Test decipher with unmapped characters
 Test decipher empty string
+
+
+
+ProgramControl documentation
+
+runProgram():
+checks if the first argument is invalid (empty or too large), gives error if so
+checks if second argument exists or not
+if the first argument isn't valid, print all the files in Data
+if the second argument doesn't exist, call Cipher with the default key
+if the second argument is good, call Cipher with the custom key (filepath)
